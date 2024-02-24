@@ -3,9 +3,3 @@
 # But not these folders, and everything inside them
 !/Aircraft_Marshalling_Training_v01/Assets/
 !/Aircraft_Marshalling_Training_v01/Scripts/
-*.dll
-*.csproj
-*.log
-*.db
-*.pdb
-*.dll
