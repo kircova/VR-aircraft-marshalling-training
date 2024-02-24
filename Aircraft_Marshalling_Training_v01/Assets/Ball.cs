@@ -46,6 +46,7 @@ public class Ball : MonoBehaviour
     private struct Message
     {
         public Vector3 position;
+        public Vector3 rotation;
         public int token;
     }
 
@@ -65,6 +66,7 @@ public class Ball : MonoBehaviour
         {
             Message m = new Message();
             m.position = this.transform.localPosition;
+            m.rotation = this.transform.localEulerAngles;
             m.token = token;
             context.SendJson(m);
         }
@@ -74,6 +76,7 @@ public class Ball : MonoBehaviour
     {
         var message = m.FromJson<Message>();
         transform.localPosition = message.position;
+        transform.localEulerAngles = message.rotation;
         if(message.token > token)
         {
             isOwner = false;
