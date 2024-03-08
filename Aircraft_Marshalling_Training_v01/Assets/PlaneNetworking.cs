@@ -45,6 +45,6 @@ public class PlaneNetworking : MonoBehaviour
         var message = m.FromJson<Message>();
         transform.localPosition = message.position;
         transform.localEulerAngles = message.rotation;
-        Debug.Log(gameObject.name + " Updated");
+        //Debug.Log(gameObject.name + " Updated");
     }
 }
