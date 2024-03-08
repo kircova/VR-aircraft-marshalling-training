@@ -55,8 +55,7 @@ public class PlaneController : MonoBehaviour
 
     private void HandleSteering() {
         currentSteerAngle = maxSteerAngle * horizontalInput;
-        backLeftWheelCollider.steerAngle = currentSteerAngle;
-        backRightWheelCollider.steerAngle = currentSteerAngle;
+        frontWheelCollider.steerAngle = currentSteerAngle;
     }
 
     private void UpdateWheels() {

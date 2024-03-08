@@ -25,6 +25,7 @@ public class PlaneNetworking : MonoBehaviour
     private struct Message
     {
         public Vector3 position;
+        public Vector3 rotation;
     }
 
     void Update()
@@ -33,6 +34,7 @@ public class PlaneNetworking : MonoBehaviour
         {
             Message m = new Message();
             m.position = this.transform.localPosition;
+            m.rotation = this.transform.localEulerAngles;
             context.SendJson(m);
         }
         
@@ -42,6 +44,7 @@ public class PlaneNetworking : MonoBehaviour
     {
         var message = m.FromJson<Message>();
         transform.localPosition = message.position;
+        transform.localEulerAngles = message.rotation;
         Debug.Log(gameObject.name + " Updated");
     }
 }

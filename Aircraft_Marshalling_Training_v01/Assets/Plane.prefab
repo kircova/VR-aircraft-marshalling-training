@@ -224,7 +224,7 @@ WheelCollider:
     targetPosition: 0.5
   m_SuspensionDistance: 0.3
   m_ForceAppPointDistance: 0
-  m_Mass: 20
+  m_Mass: 50
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
     m_ExtremumSlip: 0.4
@@ -297,7 +297,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a40359dcb09a84583a292614ba4e9688, type: 3}
       propertyPath: m_Name
-      value: Plane 1
+      value: Plane
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a40359dcb09a84583a292614ba4e9688, type: 3}
       propertyPath: m_TagString
@@ -370,7 +370,7 @@ Rigidbody:
   m_Mass: 1300
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_CenterOfMass: {x: 0, y: 0, z: -3}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
@@ -379,7 +379,7 @@ Rigidbody:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_ImplicitCom: 1
+  m_ImplicitCom: 0
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -398,7 +398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 334e2f44c931040ef8da398b203218d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  motorForce: 1000
+  motorForce: 200
   breakForce: 3000
   maxSteerAngle: 30
   frontWheelCollider: {fileID: 4269903503319341088}
