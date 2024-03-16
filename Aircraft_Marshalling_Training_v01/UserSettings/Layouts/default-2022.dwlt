@@ -15,7 +15,6 @@ MonoBehaviour:
   m_PixelRect:
     serializedVersion: 2
     x: 0
-    y: 66
     width: 1512
     height: 816
   m_ShowMode: 4
