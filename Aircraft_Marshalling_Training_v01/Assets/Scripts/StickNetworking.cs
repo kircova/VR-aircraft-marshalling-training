@@ -4,7 +4,8 @@ using Ubiq.Messaging;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class Ball : MonoBehaviour
+
+public class Stick : MonoBehaviour
 {
     XRGrabInteractable interactable;
     NetworkContext context;
