@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641228, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2533,6 +2533,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1731467569171809127, guid: 46c1f5d5a11cf5042886aabd56e7b9d7, type: 3}
+      propertyPath: avatarPrefab
+      value: 
+      objectReference: {fileID: 3882471758388404904, guid: ba4eceebcdb334d168858181b521f5d1, type: 3}
+    - target: {fileID: 1731467569171809127, guid: 46c1f5d5a11cf5042886aabd56e7b9d7, type: 3}
+      propertyPath: avatarCatalogue
+      value: 
+      objectReference: {fileID: 11400000, guid: 78f5a7e6b3fad41d9b217a71243d2e8e, type: 2}
     - target: {fileID: 1731467569171809127, guid: 46c1f5d5a11cf5042886aabd56e7b9d7, type: 3}
       propertyPath: hints.serializedProviders.instructions.Array.size
       value: 6
