@@ -14,6 +14,7 @@ public class GuideLineLight : MonoBehaviour
     void Start()
     {
         isOnLine = false;
+        lineMaterial.SetColor("_Color", Color.white);
 
     }
 
@@ -26,9 +27,9 @@ public class GuideLineLight : MonoBehaviour
     {
         if (other.CompareTag("ClientPlane"))
         {
-            Debug.Log("The Plane is on the line " + other.name);
+            //Debug.Log("The Plane is on the line " + other.name);
             isOnLine = true;
-            lineMaterial.SetColor("_Color", Color.green);
+            lineMaterial.SetColor("_Color", Color.white);
 
         }
     }
@@ -37,16 +38,15 @@ public class GuideLineLight : MonoBehaviour
     {
         if (other.CompareTag("ClientPlane"))
         {
-            Debug.Log("The Plane is off the line " + other.name);
+            //Debug.Log("The Plane is off the line " + other.name);
             isOnLine = false;
             lineMaterial.SetColor("_Color", Color.red);
-            Debug.Log("The plane should have turned red");
         }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        lineMaterial.SetColor("_Color", Color.green);
+        lineMaterial.SetColor("_Color", Color.white);
     }
 
 

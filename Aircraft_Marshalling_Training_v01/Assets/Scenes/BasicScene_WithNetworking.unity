@@ -15500,7 +15500,7 @@ MonoBehaviour:
   maxHistorySize: 72
   motorForce: 200
   breakForce: 3000
-  maxSteerAngle: 20
+  maxSteerAngle: 30
   maxSpeed: 2
   frontWheelCollider: {fileID: 727261709}
   backLeftWheelCollider: {fileID: 727261708}
@@ -15521,7 +15521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 334e2f44c931040ef8da398b203218d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  motorForce: 50
+  motorForce: 200
   breakForce: 3000
   maxSteerAngle: 30
   maxSpeed: 0
