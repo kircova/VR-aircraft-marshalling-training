@@ -50,7 +50,7 @@ public class PlaneAutomaticResponse : MonoBehaviour
         LeftStick = GameObject.FindGameObjectWithTag("LeftStick");
         RightStick = GameObject.FindGameObjectWithTag("RightStick");
         Marshal1 = GameObject.FindGameObjectWithTag("Marshal1");
-        //Marshal2 = GameObject.FindGameObjectWithTag("Marshal2");
+        Marshal2 = GameObject.FindGameObjectWithTag("Marshal2");
 
         
 
@@ -300,11 +300,11 @@ public class PlaneAutomaticResponse : MonoBehaviour
 
 
         // Are sticks grabbed?
-        Stick stickNetworking = Marshal1.GetComponent<Stick>();
-        if (stickNetworking.isGrabbed)
+        Stick stickNetworking1 = Marshal1.GetComponent<Stick>();
+        Stick stickNetworking2 = Marshal2.GetComponent<Stick>();
+        if (stickNetworking1.isGrabbed && stickNetworking2.isGrabbed)
         {
             sticksInHands = true;
-            Debug.Log("Can Start!");
         }
         else
         {
