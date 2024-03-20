@@ -345,6 +345,7 @@ public class PlaneAutomaticResponse : MonoBehaviour
                 PlaneStopTurningLeft();
             }
         }
+
         else if ((!sticksInHands && isMoving) || (isMoving && !isRunning))
         {
             isMoving = false;
