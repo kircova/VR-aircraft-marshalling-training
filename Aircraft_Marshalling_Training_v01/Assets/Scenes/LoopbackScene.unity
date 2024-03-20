@@ -330,6 +330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   token: 0
   isOwner: 0
+  isGrabbed: 0
 --- !u!114 &70890608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1198,6 +1199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   token: 0
   isOwner: 0
+  isGrabbed: 0
 --- !u!114 &415051048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2238,7 +2240,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7961092685573474548, guid: 7325e802b6086470db921378851a5db6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.06
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7961092685573474548, guid: 7325e802b6086470db921378851a5db6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4355,6 +4357,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   token: 0
   isOwner: 0
+  isGrabbed: 0
 --- !u!114 &1891339859
 MonoBehaviour:
   m_ObjectHideFlags: 0

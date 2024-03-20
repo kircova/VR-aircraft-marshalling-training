@@ -30,11 +30,9 @@ public class PlaneController : MonoBehaviour
     private void SpeedLimit()
     {
         GameObject Plane = GameObject.FindGameObjectWithTag("ClientPlane");
-        Rigidbody rb = Plane.GetComponent<Rigidbody>();//backLeftWheelCollider.gameObject.GetComponent<Rigidbody>();
+        Rigidbody rb = Plane.GetComponent<Rigidbody>();
 
         float speed = rb.velocity.magnitude;
-
-        Debug.Log("Plane Speed " + speed);
 
         if (speed > maxSpeed)
         {

@@ -40,6 +40,7 @@ public class GuideLineLight : MonoBehaviour
             Debug.Log("The Plane is off the line " + other.name);
             isOnLine = false;
             lineMaterial.SetColor("_Color", Color.red);
+            Debug.Log("The plane should have turned red");
         }
     }
 

@@ -3,7 +3,7 @@
     "m_SelectedProcess": {
         "deviceId": "1WMHHB616Q2287",
         "name": "com.DefaultCompany.Aircraft_Marshalling_Training_v01",
-        "processId": 14175,
+        "processId": 17733,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -30,6 +30,12 @@
             "deviceId": "1WMHHB616Q2287",
             "name": "com.DefaultCompany.Aircraft_Marshalling_Training_v01",
             "processId": 14175,
+            "exited": true
+        },
+        {
+            "deviceId": "1WMHHB616Q2287",
+            "name": "com.DefaultCompany.Aircraft_Marshalling_Training_v01",
+            "processId": 17733,
             "exited": false
         }
     ],
