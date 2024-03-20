@@ -31,11 +31,15 @@ public class Reset : MonoBehaviour
         {
             // If the user is the owner, reset directly.
             ResetObject();
+            Debug.Log("Reset done by owner.");
+
         }
         else
         {
             // If the user is not the owner, send a reset message to the owner.
             context.SendJson(new ResetMessage());
+            Debug.Log("Reset send by user.");
+
         }
     }
 
@@ -43,9 +47,17 @@ public class Reset : MonoBehaviour
     {
         if (isOwner)
         {
+            Debug.Log("Reset message received by owner.");
+
             // Only the owner should listen for reset messages and perform the reset.
             ResetObject();
         }
+        else
+        {
+            Debug.Log("Reset message received by non-owner.");
+        }
+
+        
     }
 
 

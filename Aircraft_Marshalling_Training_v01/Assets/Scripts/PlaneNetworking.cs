@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using Ubiq.Messaging;
+using Ubiq.Spawning;
 using UnityEngine;
 
-public class PlaneNetworking : MonoBehaviour
+public class PlaneNetworking : MonoBehaviour//, INetworkSpawnable
 {
     NetworkContext context;
     Transform parent;
+    //public NetworkId NetworkId { get; set; }
 
     public bool isOwner;
 
@@ -15,11 +17,6 @@ public class PlaneNetworking : MonoBehaviour
         parent = transform.parent;
         context = NetworkScene.Register(this);
         // only client is in charge of movement
-        if(gameObject.tag == "ClientPlane") {
-            isOwner = true;
-        } else {
-            isOwner = false;
-        }
     }
 
     private struct Message
