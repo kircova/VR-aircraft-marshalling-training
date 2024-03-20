@@ -10,7 +10,7 @@ public class PlaneController : MonoBehaviour
     private bool isBreaking;
 
     // game settings
-    [SerializeField] private float motorForce, breakForce, maxSteerAngle;
+    [SerializeField] private float motorForce, breakForce, maxSteerAngle, maxSpeed;
 
     // plane wheel colliders
     [SerializeField] private WheelCollider frontWheelCollider;
@@ -22,11 +22,33 @@ public class PlaneController : MonoBehaviour
 
     public bool isOwner;
 
+    private void Start()
+    {
+        maxSpeed = 2; 
+    }
+
+    private void SpeedLimit()
+    {
+        GameObject Plane = GameObject.FindGameObjectWithTag("ClientPlane");
+        Rigidbody rb = Plane.GetComponent<Rigidbody>();//backLeftWheelCollider.gameObject.GetComponent<Rigidbody>();
+
+        float speed = rb.velocity.magnitude;
+
+        Debug.Log("Plane Speed " + speed);
+
+        if (speed > maxSpeed)
+        {
+            Vector3 clampedV = rb.velocity.normalized * maxSpeed;
+            rb.velocity = clampedV;
+        }
+    }
+
     private void FixedUpdate() {
         GetInput();
         HandleMotor();
         HandleSteering();
         UpdateWheels();
+        SpeedLimit();
     }
 
     private void GetInput() {

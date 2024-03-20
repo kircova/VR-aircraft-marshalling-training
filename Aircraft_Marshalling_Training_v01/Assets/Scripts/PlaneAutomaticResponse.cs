@@ -28,8 +28,9 @@ public class PlaneAutomaticResponse : MonoBehaviour
     private List<Vector3> leftOrientationHistory = new();
     private List<Vector3> rightOrientationHistory = new();
 
+
     // game settings
-    [SerializeField] private float motorForce, breakForce, maxSteerAngle;
+    [SerializeField] private float motorForce, breakForce, maxSteerAngle, maxSpeed;
 
     // plane wheel colliders
     [SerializeField] private WheelCollider frontWheelCollider;
@@ -258,6 +259,20 @@ public class PlaneAutomaticResponse : MonoBehaviour
         }
     }
 
+    private void SpeedLimit()
+    {
+        GameObject Plane = GameObject.FindGameObjectWithTag("ClientPlane");
+        Rigidbody rb = Plane.GetComponent<Rigidbody>();
+
+        float speed = rb.velocity.magnitude;
+
+        if (speed > maxSpeed)
+        {
+            Vector3 clampedV = rb.velocity.normalized * maxSpeed;
+            rb.velocity = clampedV;
+        }
+    }
+
     private void FixedUpdate()
     {
 
@@ -315,6 +330,7 @@ public class PlaneAutomaticResponse : MonoBehaviour
         HandleMotor();
         HandleSteering();
         UpdateWheels();
+        SpeedLimit();
     }
 
     private void GetInput()
