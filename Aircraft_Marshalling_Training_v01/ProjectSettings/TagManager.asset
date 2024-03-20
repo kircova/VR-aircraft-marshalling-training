@@ -8,6 +8,8 @@ TagManager:
   - Teleport
   - LeftStick
   - RightStick
+  - Marshal2
+  - Marshal1
   layers:
   - Default
   - TransparentFX

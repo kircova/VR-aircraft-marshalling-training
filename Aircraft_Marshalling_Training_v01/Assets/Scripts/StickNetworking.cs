@@ -18,6 +18,8 @@ public class Stick : MonoBehaviour
     // Does this instance of the Component control the transforms for everyone?
     public bool isOwner;
 
+    public bool isGrabbed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,7 @@ public class Stick : MonoBehaviour
         context = NetworkScene.Register(this);
         token = Random.Range(1, 10000);
         isOwner = true; // Start by both exchanging the random tokens to see who wins...
+        isGrabbed = false;
     }
 
     void OnPickedUp(SelectEnterEventArgs ev)
@@ -39,6 +42,7 @@ public class Stick : MonoBehaviour
     void OnDropped(SelectExitEventArgs ev)
     {
         Debug.Log("Dropped");
+        isGrabbed = false;
         transform.parent = parent;
         GetComponent<Rigidbody>().isKinematic = false;
 
@@ -58,6 +62,7 @@ public class Stick : MonoBehaviour
     {
         token++;
         isOwner = true;
+        isGrabbed = true;
     }
 
     // Update is called once per frame
@@ -81,6 +86,7 @@ public class Stick : MonoBehaviour
         if(message.token > token)
         {
             isOwner = false;
+            isGrabbed = false;
             token = message.token;
             GetComponent<Rigidbody>().isKinematic = true;
         }
