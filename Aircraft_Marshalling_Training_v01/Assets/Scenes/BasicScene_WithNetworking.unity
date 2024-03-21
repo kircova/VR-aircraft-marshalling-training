@@ -1899,12 +1899,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 166015930}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7008757d9dceb4a49949b438dd0cef89, type: 3}
+  m_Script: {fileID: 11500000, guid: 022673d9907bc486e933427ccc7c2442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   initialPosition: {x: 0, y: 0, z: 0}
   initialRotation: {x: 0, y: 0, z: 0, w: 0}
-  isOwner: 1
+  isOwner: 0
 --- !u!1001 &169143932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4758,12 +4758,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 345767564}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7008757d9dceb4a49949b438dd0cef89, type: 3}
+  m_Script: {fileID: 11500000, guid: 022673d9907bc486e933427ccc7c2442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   initialPosition: {x: 0, y: 0, z: 0}
   initialRotation: {x: 0, y: 0, z: 0, w: 0}
-  isOwner: 1
+  isOwner: 0
 --- !u!1001 &353517284
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9867,12 +9867,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 880941340}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7008757d9dceb4a49949b438dd0cef89, type: 3}
+  m_Script: {fileID: 11500000, guid: 022673d9907bc486e933427ccc7c2442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   initialPosition: {x: 0, y: 0, z: 0}
   initialRotation: {x: 0, y: 0, z: 0, w: 0}
-  isOwner: 1
+  isOwner: 0
 --- !u!1001 &887200168
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12525,7 +12525,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 880941347}
-        m_TargetAssemblyTypeName: Reset, Assembly-CSharp
+        m_TargetAssemblyTypeName: ResetSticks, Assembly-CSharp
         m_MethodName: AttemptReset
         m_Mode: 1
         m_Arguments:
@@ -12537,7 +12537,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 166015937}
-        m_TargetAssemblyTypeName: Reset, Assembly-CSharp
+        m_TargetAssemblyTypeName: ResetSticks, Assembly-CSharp
         m_MethodName: AttemptReset
         m_Mode: 1
         m_Arguments:
@@ -12549,7 +12549,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 345767571}
-        m_TargetAssemblyTypeName: Reset, Assembly-CSharp
+        m_TargetAssemblyTypeName: ResetSticks, Assembly-CSharp
         m_MethodName: AttemptReset
         m_Mode: 1
         m_Arguments:
@@ -12561,7 +12561,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1919038447}
-        m_TargetAssemblyTypeName: Reset, Assembly-CSharp
+        m_TargetAssemblyTypeName: ResetSticks, Assembly-CSharp
         m_MethodName: AttemptReset
         m_Mode: 1
         m_Arguments:
@@ -15286,27 +15286,27 @@ PrefabInstance:
       objectReference: {fileID: 1371450169}
     - target: {fileID: 2111886246478503278, guid: 46c1f5d5a11cf5042886aabd56e7b9d7, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2111886246478503278, guid: 46c1f5d5a11cf5042886aabd56e7b9d7, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2111886246478503278, guid: 46c1f5d5a11cf5042886aabd56e7b9d7, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2111886246478503278, guid: 46c1f5d5a11cf5042886aabd56e7b9d7, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 2111886246478503278, guid: 46c1f5d5a11cf5042886aabd56e7b9d7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 53
       objectReference: {fileID: 0}
     - target: {fileID: 2111886246478503278, guid: 46c1f5d5a11cf5042886aabd56e7b9d7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -22.5
       objectReference: {fileID: 0}
     - target: {fileID: 2407431680527197411, guid: 46c1f5d5a11cf5042886aabd56e7b9d7, type: 3}
       propertyPath: m_AnchorMax.y
@@ -15522,27 +15522,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5293975139575421772, guid: 46c1f5d5a11cf5042886aabd56e7b9d7, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5293975139575421772, guid: 46c1f5d5a11cf5042886aabd56e7b9d7, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5293975139575421772, guid: 46c1f5d5a11cf5042886aabd56e7b9d7, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5293975139575421772, guid: 46c1f5d5a11cf5042886aabd56e7b9d7, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 5293975139575421772, guid: 46c1f5d5a11cf5042886aabd56e7b9d7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 5293975139575421772, guid: 46c1f5d5a11cf5042886aabd56e7b9d7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -22.5
       objectReference: {fileID: 0}
     - target: {fileID: 8225375711087241992, guid: 46c1f5d5a11cf5042886aabd56e7b9d7, type: 3}
       propertyPath: m_AnchorMax.y
@@ -16720,6 +16720,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isRunning: 0
   sticksInHands: 0
+  isMoving: 0
+  isBreaking: 0
   maxHistorySize: 72
   motorForce: 200
   breakForce: 3000
@@ -20830,12 +20832,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1919038440}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7008757d9dceb4a49949b438dd0cef89, type: 3}
+  m_Script: {fileID: 11500000, guid: 022673d9907bc486e933427ccc7c2442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   initialPosition: {x: 0, y: 0, z: 0}
   initialRotation: {x: 0, y: 0, z: 0, w: 0}
-  isOwner: 1
+  isOwner: 0
 --- !u!1001 &1929723467
 PrefabInstance:
   m_ObjectHideFlags: 0
