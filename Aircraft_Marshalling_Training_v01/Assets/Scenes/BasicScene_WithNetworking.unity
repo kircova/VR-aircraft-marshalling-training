@@ -1904,7 +1904,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialPosition: {x: 0, y: 0, z: 0}
   initialRotation: {x: 0, y: 0, z: 0, w: 0}
-  isOwner: 0
+  isOwner: 1
 --- !u!1001 &169143932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4763,7 +4763,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialPosition: {x: 0, y: 0, z: 0}
   initialRotation: {x: 0, y: 0, z: 0, w: 0}
-  isOwner: 0
+  isOwner: 1
 --- !u!1001 &353517284
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9872,7 +9872,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialPosition: {x: 0, y: 0, z: 0}
   initialRotation: {x: 0, y: 0, z: 0, w: 0}
-  isOwner: 0
+  isOwner: 1
 --- !u!1001 &887200168
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20837,7 +20837,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialPosition: {x: 0, y: 0, z: 0}
   initialRotation: {x: 0, y: 0, z: 0, w: 0}
-  isOwner: 0
+  isOwner: 1
 --- !u!1001 &1929723467
 PrefabInstance:
   m_ObjectHideFlags: 0
