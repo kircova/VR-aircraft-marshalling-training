@@ -73,7 +73,7 @@ public class PlaneAutomaticResponse : MonoBehaviour
         RightStickisMoving = false;
         isBreaking = true; // this might be unnecessary, we can probably remove it and use isMoving for both 
         isMoving = false;
-        isRunning = false; 
+        isRunning = true; //false; 
         sticksInHands = false;
 
     }
@@ -100,22 +100,23 @@ public class PlaneAutomaticResponse : MonoBehaviour
         // It then searches through recent history, to see if both have been in the start position of the GO movement.
         // If they have, then it turns on the plane forward motion.
 
-        threshold = 50;
+        threshold = 60;
         // This compares the current orientation with the end orientation (sticks points down) 
         float left_angle_go = Vector3.Angle(LeftStick.transform.localEulerAngles, new Vector3(90, 0, 45));
         float right_angle_go = Vector3.Angle(RightStick.transform.localEulerAngles, new Vector3(90, 180, 180));
 
         // Left Stick: Check if the current position is at the correct height, and is within a threshold of the desired orientation
+        /// JUST CHANGED THIS TO 1 from 1.3
         if ((LeftStick.transform.position.y < 1.3) && (Mathf.Abs(left_angle_go) < threshold))
         {
             // Now search for the start GO position 
             Vector3 orient;
             for (int i = 0; i < maxHistorySize; i++)
             {
-                orient = leftOrientationHistory[maxHistorySize - i - 1];
+                orient = leftOrientationHistory[i];
                 left_angle_go = Vector3.Angle(orient, new Vector3(270, 0, 0));
                 // height used to be 1.7 changed to 1.6 for metaquest 2
-                if ((leftPositionHistory[maxHistorySize - i - 1].y > 1.8)&&(Mathf.Abs(left_angle_go) < threshold))
+                if ((leftPositionHistory[maxHistorySize - i - 1].y > 2)&&(Mathf.Abs(left_angle_go) < threshold))
                 {
                     LeftStickisMoving = true;
                     break;
@@ -124,16 +125,17 @@ public class PlaneAutomaticResponse : MonoBehaviour
         }
 
         // Right Stick: We only check the RightStick position if the LeftStick is in the correct position
-        // Now check for the end position of the GO movement 
+        // Now check for the end position of the GO movement
+        /// JUST CHANGED THIS TO 1 from 1.3
         if ((LeftStickisMoving) && (RightStick.transform.position.y < 1.3) && (Mathf.Abs(right_angle_go) < threshold))
         {
             // Check for the start position of the GO movement 
             Vector3 orient;
-            for (int i = 1; i < maxHistorySize; i++)
+            for (int i = 0; i < maxHistorySize; i++)
             {
                 orient = rightOrientationHistory[i];
                 right_angle_go = Vector3.Angle(orient, new Vector3(270, 0, 0));
-                if ((rightPositionHistory[i].y > 1.8) && (Mathf.Abs(right_angle_go) < threshold))
+                if ((rightPositionHistory[i].y > 2) && (Mathf.Abs(right_angle_go) < threshold))
                 {
                     RightStickisMoving = true;
                     isMoving = true;
@@ -158,11 +160,11 @@ public class PlaneAutomaticResponse : MonoBehaviour
         // It then searches through recent history, to see if both have been in the start position of the STOP movement.
         // If they have, then it turns on the breaks and stops the plane.
 
-        threshold = 50;
+        threshold = 45;
         // This compares the current orientation and position with the desired end (sticks crossed above head) 
         float left_angle_stop = Vector3.Angle(LeftStick.transform.localEulerAngles, new Vector3(300, 90, 180));
         float right_angle_stop = Vector3.Angle(RightStick.transform.localEulerAngles, new Vector3(300, 180, 180));
-        if ((LeftStick.transform.position.y > 1.6) && (Mathf.Abs(left_angle_stop) < threshold))
+        if ((LeftStick.transform.position.y > 1.7) && (Mathf.Abs(left_angle_stop) < threshold))
         {
             // Now check for the starting position of the STOP motion (arms out to the sides) 
             Vector3 orient;
@@ -429,63 +431,63 @@ public class PlaneAutomaticResponse : MonoBehaviour
 
 
 
-    public void AttemptStartStop()
-    {
-        if (isOwner)
-        {
-            // If the user is the owner, reset directly.
-            if(isRunning){
-                Debug.Log("Started by server.");
-            }
-            else{
-                Debug.Log("Stopped by server.");
-            }
+    //public void AttemptStartStop()
+    //{
+    //    if (isOwner)
+    //    {
+    //        // If the user is the owner, reset directly.
+    //        if(isRunning){
+    //            Debug.Log("Started by server.");
+    //        }
+    //        else{
+    //            Debug.Log("Stopped by server.");
+    //        }
 
-            StartStopObject(isRunning);
+    //        StartStopObject(isRunning);
             
-        }
-        else
-        {
-            if(isRunning){
-                Debug.Log("Started by client.");
-            }
-            else{
-                Debug.Log("Stopped by client.");
-            }
+    //    }
+    //    else
+    //    {
+    //        if(isRunning){
+    //            Debug.Log("Started by client.");
+    //        }
+    //        else{
+    //            Debug.Log("Stopped by client.");
+    //        }
 
-            // If the user is not the owner, send a reset message to the owner.
-            StartMessage msg = new StartMessage();
-            msg.isRunning = isRunning;
-            context.SendJson(msg);
+    //        // If the user is not the owner, send a reset message to the owner.
+    //        StartMessage msg = new StartMessage();
+    //        msg.isRunning = isRunning;
+    //        context.SendJson(msg);
 
-            Debug.Log("Reset send by user.");
+    //        Debug.Log("Reset send by user.");
 
-        }
-    }
+    //    }
+    //}
 
-    private struct StartMessage {  
-        public bool isRunning; 
-    }
+//    private struct StartMessage {  
+//        public bool isRunning; 
+//    }
 
-    public void ProcessMessage(ReferenceCountedSceneGraphMessage m)
-    {
-        if (isOwner)
-        {
-            Debug.Log("Reset message received by owner.");
-            var message = m.FromJson<StartMessage>();
-            // Only the owner should listen for reset messages and perform the reset.
-            StartStopObject(message.isRunning);
-        }
-        else
-        {
-            Debug.Log("Reset message received by non-owner.");
-        }    
-    }
+//    public void ProcessMessage(ReferenceCountedSceneGraphMessage m)
+//    {
+//        if (isOwner)
+//        {
+//            Debug.Log("Reset message received by owner.");
+//            var message = m.FromJson<StartMessage>();
+//            // Only the owner should listen for reset messages and perform the reset.
+//            StartStopObject(message.isRunning);
+//        }
+//        else
+//        {
+//            Debug.Log("Reset message received by non-owner.");
+//        }    
+//    }
 
-    public void StartStopObject(bool currentState)
-    {
-        isRunning = !currentState;
-    }
+//    public void StartStopObject(bool currentState)
+//    {
+//        isRunning = !currentState;
+//    }
 
 }
 
