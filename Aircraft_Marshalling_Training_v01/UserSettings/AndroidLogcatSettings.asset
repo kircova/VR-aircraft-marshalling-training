@@ -3,7 +3,7 @@
     "m_SelectedProcess": {
         "deviceId": "1PASH9BVM70133",
         "name": "com.DefaultCompany.Aircraft_Marshalling_Training_v01",
-        "processId": 13506,
+        "processId": 4485,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -48,42 +48,6 @@
             "deviceId": "1PASH9BVM70133",
             "name": "com.DefaultCompany.Aircraft_Marshalling_Training_v01",
             "processId": 4485,
-            "exited": false
-        },
-        {
-            "deviceId": "1PASH9BVM70133",
-            "name": "com.DefaultCompany.Aircraft_Marshalling_Training_v01",
-            "processId": 5912,
-            "exited": false
-        },
-        {
-            "deviceId": "1PASH9BVM70133",
-            "name": "com.DefaultCompany.Aircraft_Marshalling_Training_v01",
-            "processId": 4411,
-            "exited": false
-        },
-        {
-            "deviceId": "1PASH9BVM70133",
-            "name": "com.DefaultCompany.Aircraft_Marshalling_Training_v01",
-            "processId": 6356,
-            "exited": false
-        },
-        {
-            "deviceId": "1PASH9BVM70133",
-            "name": "com.DefaultCompany.Aircraft_Marshalling_Training_v01",
-            "processId": 11632,
-            "exited": false
-        },
-        {
-            "deviceId": "1PASH9BVM70133",
-            "name": "com.DefaultCompany.Aircraft_Marshalling_Training_v01",
-            "processId": 12790,
-            "exited": false
-        },
-        {
-            "deviceId": "1PASH9BVM70133",
-            "name": "com.DefaultCompany.Aircraft_Marshalling_Training_v01",
-            "processId": 13506,
             "exited": false
         },
         {
