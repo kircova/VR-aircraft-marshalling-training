@@ -73,7 +73,7 @@ public class PlaneAutomaticResponse : MonoBehaviour
         RightStickisMoving = false;
         isBreaking = true; // this might be unnecessary, we can probably remove it and use isMoving for both 
         isMoving = false;
-        isRunning = true; // TODO: this needs to be updated and linked with the button!
+        isRunning = false; // TODO: this needs to be updated and linked with the button!
         sticksInHands = false;
         
          // TODO: this needs to be updated - from the controller information I believe (have they grabbed and not dropped etc) 
