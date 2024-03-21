@@ -10,7 +10,8 @@ public class TabletNetworking : MonoBehaviour
     NetworkContext context;
     Transform parent;
 
-    XRGrabInteractable interactable;
+    IXRInteractable interactable;
+    public bool isInteractedWith;
 
     public int token;
 
@@ -23,28 +24,33 @@ public class TabletNetworking : MonoBehaviour
     void Start()
     {
         parent = transform.parent;
-        interactable = GetComponent<XRGrabInteractable>();
-        interactable.firstSelectEntered.AddListener(OnPickedUp);
-        interactable.lastSelectExited.AddListener(OnDropped);
+        interactable = GetComponent<IXRInteractable>();
+        var baseInteractable = interactable as XRBaseInteractable;
+
+        if (baseInteractable != null)
+        {
+            baseInteractable.firstSelectEntered.AddListener(OnInteractedStart);
+            baseInteractable.lastSelectExited.AddListener(OnInteractedEnd);
+        }
+
         context = NetworkScene.Register(this);
         token = Random.Range(1, 10000);
         isOwner = true; // Start by both exchanging the random tokens to see who wins...
         isGrabbed = false;
     }
     
-    void OnPickedUp(SelectEnterEventArgs ev)
+    void OnInteractedStart(SelectEnterEventArgs ev)
     {
         Debug.Log("Picked up");
         TakeOwnership();
     }
 
-    void OnDropped(SelectExitEventArgs ev)
+    void OnInteractedEnd(SelectExitEventArgs ev)
     {
         Debug.Log("Dropped");
-        isGrabbed = false;
+        isInteractedWith = false;
         transform.parent = parent;
         GetComponent<Rigidbody>().isKinematic = false;
-
     }
 
 
@@ -60,9 +66,8 @@ public class TabletNetworking : MonoBehaviour
     {
         token++;
         isOwner = true;
-        isGrabbed = true;
+        isInteractedWith = true;
     }
-
 
     void Update()
     {
@@ -75,6 +80,7 @@ public class TabletNetworking : MonoBehaviour
             context.SendJson(m);
         }
     }
+
     public void ProcessMessage(ReferenceCountedSceneGraphMessage m)
     {
         var message = m.FromJson<Message>();
@@ -83,11 +89,10 @@ public class TabletNetworking : MonoBehaviour
         if(message.token > token)
         {
             isOwner = false;
-            isGrabbed = false;
+            isInteractedWith = false;
             token = message.token;
             GetComponent<Rigidbody>().isKinematic = true;
         }
         Debug.Log(gameObject.name + " Updated");
     }
-
 }
