@@ -10987,43 +10987,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5514386084912180037, guid: bb25b73aa11996046885b3fbcfa4587c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.499
+      value: -22.848
       objectReference: {fileID: 0}
     - target: {fileID: 5514386084912180037, guid: bb25b73aa11996046885b3fbcfa4587c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.2452
+      value: 1.38
       objectReference: {fileID: 0}
     - target: {fileID: 5514386084912180037, guid: bb25b73aa11996046885b3fbcfa4587c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.5285
+      value: 1.468
       objectReference: {fileID: 0}
     - target: {fileID: 5514386084912180037, guid: bb25b73aa11996046885b3fbcfa4587c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.8763584
+      value: 0.44619837
       objectReference: {fileID: 0}
     - target: {fileID: 5514386084912180037, guid: bb25b73aa11996046885b3fbcfa4587c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.19122393
+      value: 0.36765417
       objectReference: {fileID: 0}
     - target: {fileID: 5514386084912180037, guid: bb25b73aa11996046885b3fbcfa4587c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.4319114
+      value: 0.6257113
       objectReference: {fileID: 0}
     - target: {fileID: 5514386084912180037, guid: bb25b73aa11996046885b3fbcfa4587c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.09424432
+      value: -0.523663
       objectReference: {fileID: 0}
     - target: {fileID: 5514386084912180037, guid: bb25b73aa11996046885b3fbcfa4587c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 24.618
+      value: 79.551
       objectReference: {fileID: 0}
     - target: {fileID: 5514386084912180037, guid: bb25b73aa11996046885b3fbcfa4587c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 52.473
+      value: 107.114
       objectReference: {fileID: 0}
     - target: {fileID: 5514386084912180037, guid: bb25b73aa11996046885b3fbcfa4587c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -2.283
       objectReference: {fileID: 0}
     - target: {fileID: 5514386084912180038, guid: bb25b73aa11996046885b3fbcfa4587c, type: 3}
       propertyPath: m_IsTrigger
@@ -12448,7 +12448,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlaneAutomaticResponse, Assembly-CSharp
-        m_MethodName: AttemptStartStop
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
