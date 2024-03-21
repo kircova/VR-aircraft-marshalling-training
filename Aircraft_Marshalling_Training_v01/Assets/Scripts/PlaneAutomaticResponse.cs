@@ -23,8 +23,8 @@ public class PlaneAutomaticResponse : MonoBehaviour
     private GameObject RightStick;
     private bool LeftStickisMoving;
     private bool RightStickisMoving;
-    private bool isMoving;
-    private bool isBreaking;
+    public bool isMoving;
+    public bool isBreaking;
     private bool isTurningLeft;
     private bool isTurningRight;
     private int buffer; // This is our buffer to stop immediate "Go" after "Stop" 

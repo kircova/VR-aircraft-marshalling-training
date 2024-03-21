@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Ubiq.Messaging;
 using UnityEngine;
-
 public class Reset : MonoBehaviour
 {
 
@@ -23,6 +22,13 @@ public class Reset : MonoBehaviour
         rb = GetComponent<Rigidbody>(); // Get the Rigidbody component
 
         context = NetworkScene.Register(this);
+
+
+        PlaneAutomaticResponse par = GetComponent<PlaneAutomaticResponse>();
+        if (par != null)
+        {
+            SetPlaneAutomaticResponse(par);
+        }
     }
 
     public void AttemptReset()
@@ -60,6 +66,12 @@ public class Reset : MonoBehaviour
         
     }
 
+    private PlaneAutomaticResponse planeAutomaticResponse;
+
+    public void SetPlaneAutomaticResponse(PlaneAutomaticResponse par)
+    {
+        planeAutomaticResponse = par;
+    }
 
     // Update is called once per frame
     public void ResetObject()
@@ -72,6 +84,12 @@ public class Reset : MonoBehaviour
         {
             rb.velocity = Vector3.zero; // Reset the velocity
             rb.angularVelocity = Vector3.zero; // Reset the angular velocity
+        }
+
+        if (planeAutomaticResponse != null)
+        {
+            planeAutomaticResponse.isMoving = false;
+            planeAutomaticResponse.isBreaking = true;
         }
     }
 }
