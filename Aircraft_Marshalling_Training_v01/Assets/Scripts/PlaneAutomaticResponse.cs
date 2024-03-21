@@ -423,4 +423,9 @@ public class PlaneAutomaticResponse : MonoBehaviour
         wheelTransform.rotation = rot;
         wheelTransform.position = pos;
     }
+
+    public void ToggleRunning()
+    {
+        isRunning = !isRunning;
+    }
 }
