@@ -27,6 +27,7 @@ public class PlaneAutomaticResponse : MonoBehaviour
     private bool isBreaking;
     private bool isTurningLeft;
     private bool isTurningRight;
+    private int buffer; // This is our buffer to stop immediate "Go" after "Stop" 
 
     public int maxHistorySize = 72; // Maximum number of positions to store
     private List<Vector3> leftPositionHistory = new();
@@ -75,6 +76,7 @@ public class PlaneAutomaticResponse : MonoBehaviour
         isMoving = false;
         isRunning = true; //false; 
         sticksInHands = false;
+        buffer = 0;
 
     }
 
@@ -175,6 +177,7 @@ public class PlaneAutomaticResponse : MonoBehaviour
                 if ((leftPositionHistory[i].y < 1.5) && (Mathf.Abs(left_angle_stop) < threshold))
                 {
                     LeftStickisMoving = false;
+                    buffer = 72;
                     break;
                 }
             }
@@ -290,6 +293,8 @@ public class PlaneAutomaticResponse : MonoBehaviour
     private void FixedUpdate()
     {
 
+        buffer -= 1;
+
         // Add current position to history
         RecordLeftPosition(LeftStick);
         RecordRightPosition(RightStick);
@@ -320,7 +325,7 @@ public class PlaneAutomaticResponse : MonoBehaviour
 
         if (isRunning && sticksInHands) {
             // Priority if stopped is GO
-            if (!isMoving)
+            if (!isMoving && (buffer < 0))
             {
                 PlaneMoving();
             }
