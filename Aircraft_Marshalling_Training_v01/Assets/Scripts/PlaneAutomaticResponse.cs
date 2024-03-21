@@ -2,15 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Ubiq.Messaging;
-
 
 public class PlaneAutomaticResponse : MonoBehaviour
 {
 
-    private NetworkContext context;
     public bool isRunning; // This determines whether we have started running the simulation 
-
     public bool sticksInHands; // This determines whether the Marshal is holding sticks
 
     private float horizontalInput, verticalInput;
@@ -50,7 +46,6 @@ public class PlaneAutomaticResponse : MonoBehaviour
 
     private void Start()
     {
-        context = NetworkScene.Register(this);
 
         LeftStick = GameObject.FindGameObjectWithTag("LeftStick");
         RightStick = GameObject.FindGameObjectWithTag("RightStick");
@@ -428,66 +423,4 @@ public class PlaneAutomaticResponse : MonoBehaviour
         wheelTransform.rotation = rot;
         wheelTransform.position = pos;
     }
-
-
-
-    public void AttemptStartStop()
-    {
-        if (isOwner)
-        {
-            // If the user is the owner, reset directly.
-            if(isRunning){
-                Debug.Log("Started by server.");
-            }
-            else{
-                Debug.Log("Stopped by server.");
-            }
-
-            StartStopObject(isRunning);
-            
-        }
-        else
-        {
-            if(isRunning){
-                Debug.Log("Started by client.");
-            }
-            else{
-                Debug.Log("Stopped by client.");
-            }
-
-            // If the user is not the owner, send a reset message to the owner.
-            StartMessage msg = new StartMessage();
-            msg.isRunning = isRunning;
-            context.SendJson(msg);
-
-            Debug.Log("Reset send by user.");
-
-        }
-    }
-
-    private struct StartMessage {  
-        public bool isRunning; 
-    }
-
-    public void ProcessMessage(ReferenceCountedSceneGraphMessage m)
-    {
-        if (isOwner)
-        {
-            Debug.Log("Reset message received by owner.");
-            var message = m.FromJson<StartMessage>();
-            // Only the owner should listen for reset messages and perform the reset.
-            StartStopObject(message.isRunning);
-        }
-        else
-        {
-            Debug.Log("Reset message received by non-owner.");
-        }    
-    }
-
-    public void StartStopObject(bool currentState)
-    {
-        isRunning = !currentState;
-    }
-
-
 }
