@@ -73,10 +73,9 @@ public class PlaneAutomaticResponse : MonoBehaviour
         RightStickisMoving = false;
         isBreaking = true; // this might be unnecessary, we can probably remove it and use isMoving for both 
         isMoving = false;
-        isRunning = false; // TODO: this needs to be updated and linked with the button!
+        isRunning = false; 
         sticksInHands = false;
-        
-         // TODO: this needs to be updated - from the controller information I believe (have they grabbed and not dropped etc) 
+
     }
 
     private void RecordLeftPosition(GameObject stick)
@@ -101,8 +100,7 @@ public class PlaneAutomaticResponse : MonoBehaviour
         // It then searches through recent history, to see if both have been in the start position of the GO movement.
         // If they have, then it turns on the plane forward motion.
 
-        //threshold = 50;
-        threshold = 60;
+        threshold = 50;
         // This compares the current orientation with the end orientation (sticks points down) 
         float left_angle_go = Vector3.Angle(LeftStick.transform.localEulerAngles, new Vector3(90, 0, 45));
         float right_angle_go = Vector3.Angle(RightStick.transform.localEulerAngles, new Vector3(90, 180, 180));
@@ -117,7 +115,7 @@ public class PlaneAutomaticResponse : MonoBehaviour
                 orient = leftOrientationHistory[maxHistorySize - i - 1];
                 left_angle_go = Vector3.Angle(orient, new Vector3(270, 0, 0));
                 // height used to be 1.7 changed to 1.6 for metaquest 2
-                if ((leftPositionHistory[maxHistorySize - i - 1].y > 1.6)&&(Mathf.Abs(left_angle_go) < threshold))
+                if ((leftPositionHistory[maxHistorySize - i - 1].y > 1.8)&&(Mathf.Abs(left_angle_go) < threshold))
                 {
                     LeftStickisMoving = true;
                     break;
@@ -135,7 +133,7 @@ public class PlaneAutomaticResponse : MonoBehaviour
             {
                 orient = rightOrientationHistory[i];
                 right_angle_go = Vector3.Angle(orient, new Vector3(270, 0, 0));
-                if ((rightPositionHistory[i].y > 1.7) && (Mathf.Abs(right_angle_go) < threshold))
+                if ((rightPositionHistory[i].y > 1.8) && (Mathf.Abs(right_angle_go) < threshold))
                 {
                     RightStickisMoving = true;
                     isMoving = true;
@@ -160,11 +158,11 @@ public class PlaneAutomaticResponse : MonoBehaviour
         // It then searches through recent history, to see if both have been in the start position of the STOP movement.
         // If they have, then it turns on the breaks and stops the plane.
 
-        threshold = 40;
+        threshold = 50;
         // This compares the current orientation and position with the desired end (sticks crossed above head) 
         float left_angle_stop = Vector3.Angle(LeftStick.transform.localEulerAngles, new Vector3(300, 90, 180));
         float right_angle_stop = Vector3.Angle(RightStick.transform.localEulerAngles, new Vector3(300, 180, 180));
-        if ((LeftStick.transform.position.y > 1.7) && (Mathf.Abs(left_angle_stop) < threshold))
+        if ((LeftStick.transform.position.y > 1.6) && (Mathf.Abs(left_angle_stop) < threshold))
         {
             // Now check for the starting position of the STOP motion (arms out to the sides) 
             Vector3 orient;
@@ -351,7 +349,7 @@ public class PlaneAutomaticResponse : MonoBehaviour
             }
         }
 
-        else if ((!sticksInHands && isMoving) || (isMoving && !isRunning))
+        else if ((!sticksInHands && isMoving) || (isMoving && (!isRunning)))
         {
             isMoving = false;
             isBreaking = true;
