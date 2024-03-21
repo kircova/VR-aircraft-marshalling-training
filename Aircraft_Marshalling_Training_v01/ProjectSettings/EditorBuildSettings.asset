@@ -5,12 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/BasicScene_WithNetworking.unity
-    guid: b650d1e775cba4821b3cb9563dee29a1
-  - enabled: 0
-    path: Assets/Samples/Ubiq/1.0.0-pre.3/Demo (XRI)/Demo.unity
-    guid: 2de505d34345ab340bdde30d419b24eb
   - enabled: 1
     path: Assets/Scenes/BasicScene_WithNetworking.unity
     guid: c5baeb0f25dfb4f1eab829e9cf83443c

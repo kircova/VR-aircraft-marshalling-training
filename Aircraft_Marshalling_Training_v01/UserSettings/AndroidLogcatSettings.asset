@@ -1,9 +1,9 @@
 {
-    "m_SelectedDeviceId": "1WMHHB616Q2287",
+    "m_SelectedDeviceId": "1PASH9BVM70133",
     "m_SelectedProcess": {
-        "deviceId": "1WMHHB616Q2287",
+        "deviceId": "1PASH9BVM70133",
         "name": "com.DefaultCompany.Aircraft_Marshalling_Training_v01",
-        "processId": 17733,
+        "processId": 4485,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -27,15 +27,33 @@
             "exited": true
         },
         {
-            "deviceId": "1WMHHB616Q2287",
+            "deviceId": "1PASH9BVM70133",
             "name": "com.DefaultCompany.Aircraft_Marshalling_Training_v01",
-            "processId": 14175,
+            "processId": 19590,
             "exited": true
+        },
+        {
+            "deviceId": "1PASH9BVM70133",
+            "name": "com.oculus.shellenv",
+            "processId": 17774,
+            "exited": false
+        },
+        {
+            "deviceId": "1PASH9BVM70133",
+            "name": "com.DefaultCompany.Aircraft_Marshalling_Training_v01",
+            "processId": 23190,
+            "exited": false
+        },
+        {
+            "deviceId": "1PASH9BVM70133",
+            "name": "com.DefaultCompany.Aircraft_Marshalling_Training_v01",
+            "processId": 4485,
+            "exited": false
         },
         {
             "deviceId": "1WMHHB616Q2287",
             "name": "com.DefaultCompany.Aircraft_Marshalling_Training_v01",
-            "processId": 17733,
+            "processId": 14175,
             "exited": false
         }
     ],
